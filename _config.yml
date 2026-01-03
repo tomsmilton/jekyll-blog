@@ -1,8 +1,8 @@
 # Site settings
 title: Your Site Title
 description: Your site description
-url: "https://yourusername.github.io" # or your custom domain
-baseurl: "" # subpath of your site, e.g. /blog
+url: "https://tsmilton.github.io" # or your custom domain
+baseurl: "/jekyll-blog" # subpath of your site, e.g. /blog
 
 # Author
 author:
