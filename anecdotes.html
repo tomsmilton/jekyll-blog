@@ -1,36 +1,31 @@
 ---
 layout: page
-title: Anecdotes
+title: Anecdotes and ideas
 permalink: /anecdotes/
 ---
 
-<p>All anecdotes, sorted by most recent:</p>
+<p>While moving house, I found a notebook from when I was 14. It contained a list of cycling related blog ideas, inspired by <a href="https://www.dcrainmaker.com/">DC Rainmaker</a>. I spent hours planning these posts but never had the courage to publish anything.</p>
+
+<p>So, whilst I'd like to write essays, to break this pattern I'm now keeping some of my ideas in a public list. This doesn't include my professional projects—for those, DM me for Google Doc access.</p>
 
 {% assign anecdotes = site.notes | sort: 'date' | reverse %}
 {% if anecdotes.size > 0 %}
-<ul class="post-list">
   {% for note in anecdotes %}
-  <li class="post-item">
-    <h3 class="post-title">
-      <a href="{{ note.url | relative_url }}">{{ note.title }}</a>
-    </h3>
-    <div class="post-meta">
-      {{ note.date | date: "%B %-d, %Y" }}
-      {% if note.updated %}
-      · Updated: {{ note.updated | date: "%B %-d, %Y" }}
-      {% endif %}
-      {% if note.tags %}
-      · {% for tag in note.tags limit:3 %}
-        <a href="{{ '/tags/' | append: tag | slugify | relative_url }}">#{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+  <section class="anecdote-section">
+    <h2>{{ note.title }}</h2>
+    {% if note.tags.size > 0 %}
+    <div class="post-tags">
+      {% for tag in note.tags %}
+      <a href="{{ '/tags/' | append: tag | slugify | relative_url }}" class="tag">#{{ tag }}</a>
       {% endfor %}
-      {% endif %}
     </div>
-    {% if note.excerpt %}
-    <div class="post-excerpt">{{ note.excerpt | strip_html | truncatewords: 40 }}</div>
     {% endif %}
-  </li>
+    <div class="anecdote-content">
+      {{ note.content }}
+    </div>
+    <div class="divider"></div>
+  </section>
   {% endfor %}
-</ul>
 {% else %}
 <p>No anecdotes yet.</p>
 {% endif %}

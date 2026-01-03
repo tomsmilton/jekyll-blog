@@ -6,6 +6,4 @@ tags: [policy]
 excerpt: "Since 1995, melatonin has been a prescription-only drug in the UK. What would have to happen for this to change?"
 ---
 
-Since 1995, melatonin has been a prescription-only drug in the UK, why is this and what would have to happen for this to change?[^1] A full cost-benefit would consider the impact it would have on nightshift workers including doctors.
-
-[^1]: Deep Research has given me a pretty good answer to these questions already.
+Since 1995, melatonin has been a prescription-only drug in the UK, why is this and what would have to happen for this to change?<label for="sn-deep-research" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-deep-research" class="margin-toggle"/><span class="sidenote">Deep Research has given me a pretty good answer to these questions already.</span> A full cost-benefit would consider the impact it would have on nightshift workers including doctors.

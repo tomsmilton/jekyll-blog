@@ -163,3 +163,24 @@
     margin-top: 1rem;
   }
 }
+
+// Anecdotes page styles
+.anecdote-section {
+  margin-bottom: 3rem;
+
+  h2 {
+    margin-bottom: 0.8rem;
+  }
+
+  .anecdote-content {
+    p:first-of-type {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.divider {
+  border-bottom: 1px solid #ccc;
+  margin: 2rem 0;
+  width: 100%;
+}

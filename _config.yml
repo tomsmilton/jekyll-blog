@@ -21,8 +21,7 @@ collections:
     output: true
     permalink: /essays/:title/
   notes:
-    output: true
-    permalink: /anecdotes/:title/
+    output: false
 
 # Defaults
 defaults:
