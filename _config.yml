@@ -7,7 +7,6 @@ baseurl: "/jekyll-blog"
 # Author
 author:
   name: Thomas Milton
-  email: tom@tsmilton.com
 
 # Build settings
 markdown: kramdown
