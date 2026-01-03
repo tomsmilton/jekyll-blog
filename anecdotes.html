@@ -9,15 +9,26 @@ permalink: /anecdotes/
 <p>So, whilst I'd like to write essays, to break this pattern I'm now keeping some of my ideas in a public list. This doesn't include my professional projects—for those, DM me for Google Doc access.</p>
 
 {% assign anecdotes = site.notes | sort: 'date' | reverse %}
+{% assign all_tags = site.notes | map: 'tags' | compact | flatten | uniq | sort %}
+
+<div class="filter-container">
+  <h4>Filter by topic:</h4>
+  <div class="filter-buttons">
+    <button class="filter-button active" data-tag="all">All</button>
+    {% for tag in all_tags %}
+    <button class="filter-button" data-tag="{{ tag }}">{{ tag }}</button>
+    {% endfor %}
+  </div>
+</div>
 {% if anecdotes.size > 0 %}
   {% for note in anecdotes %}
   {% assign note_id = note.title | slugify %}
-  <section class="anecdote-section" id="{{ note_id }}">
+  <section class="anecdote-section" id="{{ note_id }}" data-tags="{{ note.tags | join: ',' }}">
     <h2>{{ note.title }}</h2>
     {% if note.tags.size > 0 %}
     <div class="post-tags">
       {% for tag in note.tags %}
-      <a href="{{ '/tags/' | append: tag | slugify | relative_url }}" class="tag">#{{ tag }}</a>
+      <span class="tag">#{{ tag }}</span>
       {% endfor %}
     </div>
     {% endif %}
@@ -60,4 +71,31 @@ function copyLink(id) {
     }, 3000);
   });
 }
+
+// Tag filtering
+document.addEventListener('DOMContentLoaded', function() {
+  const filterButtons = document.querySelectorAll('.filter-button');
+  const sections = document.querySelectorAll('.anecdote-section');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const selectedTag = this.getAttribute('data-tag');
+
+      // Update active button
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+
+      // Filter sections
+      sections.forEach(section => {
+        const sectionTags = section.getAttribute('data-tags');
+
+        if (selectedTag === 'all' || sectionTags.includes(selectedTag)) {
+          section.style.display = 'block';
+        } else {
+          section.style.display = 'none';
+        }
+      });
+    });
+  });
+});
 </script>

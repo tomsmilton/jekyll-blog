@@ -21,9 +21,7 @@ title: Home
         <div class="post-meta">
           {{ item.date | date: "%B %-d, %Y" }} · {{ item.content_type | capitalize }}
           {% if item.tags %}
-          · {% for tag in item.tags limit:3 %}
-            <a href="{{ '/tags/' | append: tag | slugify | relative_url }}">#{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
-          {% endfor %}
+          · {% for tag in item.tags limit:3 %}#{{ tag }}{% unless forloop.last %}, {% endunless %}{% endfor %}
           {% endif %}
         </div>
         {% if item.excerpt %}
@@ -51,9 +49,7 @@ title: Home
         <div class="post-meta">
           Updated: {{ item.updated | date: "%B %-d, %Y" }} · {{ item.content_type | capitalize }}
           {% if item.tags %}
-          · {% for tag in item.tags limit:3 %}
-            <a href="{{ '/tags/' | append: tag | slugify | relative_url }}">#{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
-          {% endfor %}
+          · {% for tag in item.tags limit:3 %}#{{ tag }}{% unless forloop.last %}, {% endunless %}{% endfor %}
           {% endif %}
         </div>
         {% if item.excerpt %}
