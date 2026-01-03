@@ -13,9 +13,7 @@ permalink: /anecdotes/
   {% for note in anecdotes %}
   {% assign note_id = note.title | slugify %}
   <section class="anecdote-section" id="{{ note_id }}">
-    <h2>
-      <a href="#{{ note_id }}" class="anecdote-anchor">{{ note.title }}</a>
-    </h2>
+    <h2>{{ note.title }}</h2>
     {% if note.tags.size > 0 %}
     <div class="post-tags">
       {% for tag in note.tags %}
@@ -26,9 +24,40 @@ permalink: /anecdotes/
     <div class="anecdote-content">
       {{ note.content }}
     </div>
+    <button class="copy-button" onclick="copyLink('{{ note_id }}')">
+      <img src="{{ '/assets/images/copy.svg' | relative_url }}" alt="Copy link">
+      <span class="copy-text">Copy link to idea</span>
+    </button>
     <div class="divider"></div>
   </section>
   {% endfor %}
 {% else %}
 <p>No anecdotes yet.</p>
 {% endif %}
+
+<div class="copy-tooltip" id="copy-tooltip">Copied!</div>
+
+<script>
+function copyLink(id) {
+  const url = window.location.href.split('#')[0] + '#' + id;
+  navigator.clipboard.writeText(url).then(() => {
+    const tooltip = document.getElementById('copy-tooltip');
+
+    // Position tooltip at bottom center
+    tooltip.style.left = '50%';
+    tooltip.style.transform = 'translateX(-50%)';
+
+    // Remove any existing animation
+    tooltip.classList.remove('show');
+    void tooltip.offsetWidth; // Trigger reflow
+
+    // Show tooltip with animation
+    tooltip.classList.add('show');
+
+    // Remove after 3 seconds
+    setTimeout(() => {
+      tooltip.classList.remove('show');
+    }, 3000);
+  });
+}
+</script>
