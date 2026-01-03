@@ -167,9 +167,20 @@
 // Anecdotes page styles
 .anecdote-section {
   margin-bottom: 3rem;
+  scroll-margin-top: 2rem; // Offset for anchor scroll
 
   h2 {
     margin-bottom: 0.8rem;
+  }
+
+  .anecdote-anchor {
+    color: $text-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $link-color;
+      text-decoration: none;
+    }
   }
 
   .anecdote-content {

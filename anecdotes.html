@@ -11,8 +11,11 @@ permalink: /anecdotes/
 {% assign anecdotes = site.notes | sort: 'date' | reverse %}
 {% if anecdotes.size > 0 %}
   {% for note in anecdotes %}
-  <section class="anecdote-section">
-    <h2>{{ note.title }}</h2>
+  {% assign note_id = note.title | slugify %}
+  <section class="anecdote-section" id="{{ note_id }}">
+    <h2>
+      <a href="#{{ note_id }}" class="anecdote-anchor">{{ note.title }}</a>
+    </h2>
     {% if note.tags.size > 0 %}
     <div class="post-tags">
       {% for tag in note.tags %}
