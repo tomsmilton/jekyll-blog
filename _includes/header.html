@@ -1,0 +1,11 @@
+<header class="site-header">
+  <div class="site-title">
+    <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+  </div>
+  <nav class="site-nav">
+    <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
+    <a href="{{ '/essays/' | relative_url }}" {% if page.url contains '/essays/' %}class="active"{% endif %}>Essays</a>
+    <a href="{{ '/anecdotes/' | relative_url }}" {% if page.url contains '/anecdotes/' %}class="active"{% endif %}>Anecdotes</a>
+    <a href="{{ '/tags/' | relative_url }}" {% if page.url contains '/tags/' %}class="active"{% endif %}>Tags</a>
+  </nav>
+</header>

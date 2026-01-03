@@ -1,0 +1,64 @@
+# Site settings
+title: Your Site Title
+description: Your site description
+url: "https://yourusername.github.io" # or your custom domain
+baseurl: "" # subpath of your site, e.g. /blog
+
+# Author
+author:
+  name: Your Name
+  email: your.email@example.com
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /essays/:title/
+  notes:
+    output: true
+    permalink: /anecdotes/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      content_type: "essay"
+  - scope:
+      path: ""
+      type: "notes"
+    values:
+      layout: "post"
+      content_type: "anecdote"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+  - .gitignore
+
+# Permalink structure
+permalink: /:categories/:title/
+
+# Timezone
+timezone: America/New_York
+
+# Enable backlinks
+enable_backlinks: true

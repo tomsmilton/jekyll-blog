@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<article class="tag-page">
+  <h1>#{{ page.tag }}</h1>
+  <p class="tag-description">{{ page.posts.size }} posts tagged with "{{ page.tag }}"</p>
+
+  <ul class="post-list">
+    {% assign items = page.posts | sort: 'date' | reverse %}
+    {% for item in items %}
+    <li class="post-item">
+      <h3 class="post-title">
+        <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+      </h3>
+      <div class="post-meta">
+        {{ item.date | date: "%B %-d, %Y" }} · {{ item.content_type | capitalize }}
+      </div>
+      {% if item.excerpt %}
+      <div class="post-excerpt">{{ item.excerpt }}</div>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+
+  <p><a href="{{ '/tags/' | relative_url }}">← Back to all tags</a></p>
+</article>

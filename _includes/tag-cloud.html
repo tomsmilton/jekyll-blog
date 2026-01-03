@@ -1,0 +1,33 @@
+{% comment %}
+  Tag cloud with size variation based on post count
+{% endcomment %}
+
+{% assign all_tags = site.posts | map: 'tags' | compact | flatten %}
+{% assign notes_tags = site.notes | map: 'tags' | compact | flatten %}
+{% assign all_tags = all_tags | concat: notes_tags | uniq | sort %}
+
+{% if all_tags.size > 0 %}
+<div class="tag-cloud">
+  {% for tag in all_tags %}
+    {% assign posts_with_tag = site.posts | where_exp: "post", "post.tags contains tag" %}
+    {% assign notes_with_tag = site.notes | where_exp: "note", "note.tags contains tag" %}
+    {% assign tag_count = posts_with_tag.size | plus: notes_with_tag.size %}
+
+    {% comment %} Calculate tag size based on count {% endcomment %}
+    {% assign tag_size = 1 %}
+    {% if tag_count > 8 %}
+      {% assign tag_size = 5 %}
+    {% elsif tag_count > 5 %}
+      {% assign tag_size = 4 %}
+    {% elsif tag_count > 3 %}
+      {% assign tag_size = 3 %}
+    {% elsif tag_count > 1 %}
+      {% assign tag_size = 2 %}
+    {% endif %}
+
+    <a href="{{ '/tags/' | append: tag | slugify | relative_url }}" class="tag-size-{{ tag_size }}">
+      {{ tag }} <span class="tag-count">({{ tag_count }})</span>
+    </a>
+  {% endfor %}
+</div>
+{% endif %}

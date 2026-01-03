@@ -1,0 +1,165 @@
+// Layout and structure styles
+
+.site-header {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 3rem;
+
+  .site-title {
+    font-family: $heading-font;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+
+    a {
+      color: $text-color;
+
+      &:hover {
+        text-decoration: none;
+        color: $link-color;
+      }
+    }
+  }
+
+  .site-nav {
+    margin-top: 0.5rem;
+
+    a {
+      margin-right: 1.2rem;
+      font-size: 1rem;
+      color: #555;
+      font-weight: 500;
+
+      &:hover {
+        color: $link-color;
+      }
+
+      &.active {
+        color: $text-color;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.content-section {
+  margin-bottom: 3rem;
+
+  h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+  }
+}
+
+.post-list {
+  list-style: none;
+  padding-left: 0;
+
+  .post-item {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 1.5rem;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .post-title {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+
+    a {
+      color: $text-color;
+
+      &:hover {
+        color: $link-color;
+      }
+    }
+  }
+
+  .post-meta {
+    font-size: 0.95rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+
+  .post-excerpt {
+    margin-top: 0.5rem;
+  }
+}
+
+.post-header {
+  margin-bottom: 2rem;
+
+  .post-title {
+    margin-bottom: 0.5rem;
+  }
+
+  .post-meta {
+    font-size: 1rem;
+    color: #666;
+    font-style: italic;
+  }
+}
+
+.post-content {
+  margin-bottom: 3rem;
+}
+
+.backlinks {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e0e0e0;
+
+  h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  li {
+    margin-bottom: 0.8rem;
+  }
+}
+
+.site-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.85rem;
+  color: #666;
+
+  p {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Page content spacing
+.page-content {
+  min-height: 60vh;
+}
+
+// Home page styles
+.home {
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 3rem;
+  }
+
+  h1 {
+    margin-top: 1rem;
+  }
+}

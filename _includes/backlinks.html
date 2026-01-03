@@ -1,0 +1,34 @@
+{% comment %}
+  Find all posts and notes that link to the current page
+  This checks for links in the content using the page URL
+{% endcomment %}
+
+{% assign current_url = page.url | relative_url %}
+{% assign current_title = page.title %}
+
+{% assign all_content = site.posts | concat: site.notes %}
+{% assign backlinks = "" | split: "" %}
+
+{% for item in all_content %}
+  {% unless item.url == page.url %}
+    {% comment %} Check if the item's content contains a link to the current page {% endcomment %}
+    {% if item.content contains current_url or item.content contains current_title %}
+      {% assign backlinks = backlinks | push: item %}
+    {% endif %}
+  {% endunless %}
+{% endfor %}
+
+{% if backlinks.size > 0 %}
+<div class="backlinks">
+  <h3>Linked References</h3>
+  <p>{{ backlinks.size }} post{% if backlinks.size != 1 %}s{% endif %} link{% if backlinks.size == 1 %}s{% endif %} to this page:</p>
+  <ul>
+    {% for link in backlinks %}
+    <li>
+      <a href="{{ link.url | relative_url }}">{{ link.title }}</a>
+      <span class="post-meta"> · {{ link.date | date: "%B %-d, %Y" }} · {{ link.content_type | capitalize }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
