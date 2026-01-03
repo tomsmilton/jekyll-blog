@@ -1,13 +1,13 @@
 # Site settings
-title: Your Site Title
-description: Your site description
-url: "https://tsmilton.github.io" # or your custom domain
-baseurl: "/jekyll-blog" # subpath of your site, e.g. /blog
+title: Thomas Milton
+description: Essays and anecdotes on science, technology, and policy
+url: "https://tomsmilton.github.io"
+baseurl: "/jekyll-blog"
 
 # Author
 author:
-  name: Your Name
-  email: your.email@example.com
+  name: Thomas Milton
+  email: tom@tsmilton.com
 
 # Build settings
 markdown: kramdown
