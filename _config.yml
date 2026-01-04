@@ -1,5 +1,5 @@
 # Site settings
-title: Thomas Milton
+title: tsmilton
 description: Essays and anecdotes on science, technology, and policy
 url: "https://tomsmilton.github.io"
 baseurl: "/jekyll-blog"
@@ -7,6 +7,11 @@ baseurl: "/jekyll-blog"
 # Author
 author:
   name: Thomas Milton
+  bio: "Engineer, startup founder. Trying to share my hot and cold takes."
+  email: "info@amododesign.com"
+  twitter: "tsmilton_amodo"
+  linkedin: "tsmilton"
+  website: "https://www.amododesign.com"
 
 # Build settings
 markdown: kramdown
